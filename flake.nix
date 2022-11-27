@@ -31,19 +31,26 @@
               minimal.cargo
               targets.wasm32-unknown-unknown.latest.rust-std
             ];
+
+          devShellPackages = with pkgs; [
+            wasm-pack
+            nodejs-18_x
+          ] ++ [
+            rust-wasm-toolchain
+          ];
         in
         {
           devShells.default = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [
-              wasm-pack
-              nodejs-18_x
-            ] ++ [
-              rust-wasm-toolchain
-            ];
-
+            nativeBuildInputs = devShellPackages;
             shellHook = ''
               npm install
             '';
+          };
+
+          # A shell for CI operations which doesn't automatically
+          # install packages.
+          devShells.ci = pkgs.mkShell {
+            nativeBuildInputs = devShellPackages;
           };
         };
 
