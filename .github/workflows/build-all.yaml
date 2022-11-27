@@ -1,0 +1,52 @@
+name: Build all targets
+
+on:
+  push:
+
+jobs:
+  build-all:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # Note: we use Nix to run npm, but this step sets up GitHub
+      # package caching.
+      - name: Setup nodejs
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version-file: package.json
+          cache: "npm"
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v18
+
+      - name: Install dependencies
+        run: nix develop .#ci -c npm ci
+
+      - name: Build the core module
+        run: nix develop .#ci -c npm run build
+
+      - name: Test the core module
+        run: nix develop .#ci -c npm run test
+
+      - name: Typecheck the entire project
+        run: nix develop .#ci -c npm run typecheck
+
+      - name: Build the docs
+        run: nix develop .#ci -c npm run doc
+
+      - name: Build the Storybook
+        run: nix develop .#ci -c npm run build-storybook
+
+      # Note: linting must come after building, or else eslint won't
+      # be able to resolve some paths.
+      - name: Lint
+        run: nix develop .#ci -c npm run lint
+
+      # Note: we only audit non-dev dependencies, because there are
+      # nearly always dev dependency vulnerabilities, but they're very
+      # unlikely to affect the core module.
+      - name: Audit
+        run: nix develop .#ci -c npm audit --omit dev
