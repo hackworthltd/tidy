@@ -35,6 +35,7 @@
           devShellPackages = with pkgs; [
             wasm-pack
             nodejs-18_x
+            openssl
           ] ++ [
             rust-wasm-toolchain
           ];
