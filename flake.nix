@@ -36,6 +36,7 @@
             wasm-pack
             nodejs-18_x
             openssl
+            zlib
           ] ++ [
             rust-wasm-toolchain
           ];
