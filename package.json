@@ -46,12 +46,12 @@
   "author": "Zixuan Chen",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zxch3n/tidy.git"
+    "url": "git+https://github.com/hackworthltd/tidy.git"
   },
   "bugs": {
-    "url": "https://github.com/zxch3n/tidy/issues"
+    "url": "https://github.com/hackworthltd/tidy/issues"
   },
-  "homepage": "https://github.com/zxch3n/tidy#readme",
+  "homepage": "https://github.com/hackworthltd/tidy#readme",
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
