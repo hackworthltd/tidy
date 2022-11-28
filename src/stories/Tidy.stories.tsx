@@ -1,15 +1,8 @@
-import React, {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useDebounce } from 'react-use';
 import { Node } from '../tidy';
 import { LayoutTypeStr, TidyComponent } from '../TidyComponent';
 import {
-  createNode,
   createTree,
   insertRandomNodeDepthFirst,
   node,
@@ -41,16 +34,16 @@ interface Props {
 export const TidyLayout = ({
   layoutType,
   num,
-  ...props
+  ..._props
 }: Props & { num: number }) => {
   const [updateTrigger, setUpdate] = useState(0);
-  const [root, setRoot] = useState(() => {
+  const [root] = useState(() => {
     return createTree(1);
   });
   const prevNum = useRef(1);
   useDebounce(
     () => {
-      let currentNum = nodeNum(root);
+      const currentNum = nodeNum(root);
       if (num < currentNum) {
         deleteRandomNode(root, currentNum - num);
       } else if (num > currentNum) {

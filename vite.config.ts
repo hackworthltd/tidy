@@ -1,7 +1,10 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vite';
 import path from 'path';
 import react from '@vitejs/plugin-react';
-import styleImport from 'vite-plugin-style-import';
+import { createStyleImportPlugin } from 'vite-plugin-style-import';
+import { checker } from 'vite-plugin-checker';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,8 +16,16 @@ export default defineConfig({
     },
   },
   plugins: [
+    checker({
+      typescript: {
+        buildMode: true,
+      },
+      eslint: {
+        lintCommand: 'eslint .',
+      },
+    }),
     react(),
-    styleImport({
+    createStyleImportPlugin({
       libs: [
         {
           libraryName: 'antd',
@@ -30,18 +41,12 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'tidy',
-      fileName: (format) => {
-        if (format === 'es') {
-          return 'tidy.es.mjs';
-        }
-
-        return `tidy.${format}.js`;
-      },
+      fileName: 'tidy',
+      formats: ['es'],
     },
     rollupOptions: {
       external: ['react'],
     },
   },
-  // @ts-ignore
   test: {},
 });

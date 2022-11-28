@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
-    "module": "ES2015",
-    "lib": ["dom", "ES2015"],
+    "target": "ES6",
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,14 +11,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "strictNullChecks": true,
-    "noEmit": false,
-    "jsx": "react",
-    "downlevelIteration": true,
+    "jsx": "react-jsx",
     "rootDir": "./src",
-    "preserveSymlinks": true,
-    "outDir": "dist/",
-    "declaration": true,
-    "emitDeclarationOnly": true
-  },
-  "include": ["src/index.ts"]
+    "preserveSymlinks": true
+  }
 }

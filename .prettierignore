@@ -1,3 +1,6 @@
+README.md
+CHANGELOG.md
+LICENSE
 module/
 node_modules/
 coverage/
@@ -9,6 +12,6 @@ storybook-static/
 .cache/
 *.log
 .DS_Store
-
-# Nix
+.github/
 result*
+.buildkite/

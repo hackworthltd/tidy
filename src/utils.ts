@@ -47,7 +47,7 @@ export function createNode(): Node {
 
 export function createTree(num: number): Node {
   const root = createNode();
-  let arr = [root];
+  const arr = [root];
   for (let i = 0; i < num; i++) {
     let parentIndex = 0;
     parentIndex = (arr.length * Math.random()) | 0;
@@ -94,17 +94,17 @@ export function deleteRandomNode(root: Node, num: number) {
   }
 }
 
-export function insertRandomNodeDepthFirst(root: Node, num: number = 1) {
+export function insertRandomNodeDepthFirst(root: Node, num = 1) {
   let nodes: [Node, number][] = [];
   visit(root, (node, depth) => {
     nodes.push([node, depth]);
   });
 
   function filter() {
-    nodes.sort((a, b) => Math.random() * 2 - 1);
+    nodes.sort((_a, _b) => Math.random() * 2 - 1);
     nodes.sort((a, b) => -a[1] + b[1]);
-    nodes = nodes.filter(([node, d]) => node.children.length < 4);
-    nodes = nodes.slice(0, 20).concat(nodes.filter(([node, d]) => d < 2));
+    nodes = nodes.filter(([node, _]) => node.children.length < 4);
+    nodes = nodes.slice(0, 20).concat(nodes.filter(([_, d]) => d < 2));
   }
 
   filter();
@@ -120,8 +120,8 @@ export function insertRandomNodeDepthFirst(root: Node, num: number = 1) {
   }
 }
 
-export function insertRandomNodeBreadthFirst(root: Node, num: number = 1) {
-  let nodes: [Node, number][] = [];
+export function insertRandomNodeBreadthFirst(root: Node, num = 1) {
+  const nodes: [Node, number][] = [];
   visit(root, (node, depth) => {
     nodes.push([node, depth]);
   });
