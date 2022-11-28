@@ -48,6 +48,9 @@
     "type": "git",
     "url": "git+https://github.com/hackworthltd/tidy.git"
   },
+  "publishConfig": {
+    "@hackworthltd:registry": "https://npm.pkg.github.com"
+  },
   "bugs": {
     "url": "https://github.com/hackworthltd/tidy/issues"
   },
