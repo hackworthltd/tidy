@@ -147,7 +147,7 @@
               name = "tidy-source";
             };
 
-            npmDepsHash = "sha256-rE8XdEqEzWSjnpdOGPbILTJJubnrK/v80f/iZBhIqB8=";
+            npmDepsHash = "sha256-2sLIm0nzm1r/q7XUGtJVPgLFpRDuQNbRBjkjCF7NIVI=";
             npmFlags = [ "--legacy-peer-deps" ];
 
             buildInputs = [
