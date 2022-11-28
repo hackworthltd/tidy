@@ -1,7 +1,7 @@
 {
   "name": "@hackworthltd/tidy",
   "sideEffects": false,
-  "version": "0.0.2",
+  "version": "0.0.2-dev-20221128-01",
   "description": "",
   "type": "module",
   "files": [
