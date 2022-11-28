@@ -46,7 +46,7 @@
   "author": "Zixuan Chen",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hackworthltd/tidy.git"
+    "url": "https://github.com/hackworthltd/tidy.git"
   },
   "publishConfig": {
     "@hackworthltd:registry": "https://npm.pkg.github.com"
