@@ -25,7 +25,7 @@ export declare class TidyLayout extends Disposable {
     private nextId;
     private root;
     private idToNode;
-    static create(type?: LayoutType): Promise<TidyLayout>;
+    static create(type?: LayoutType, parent_child_margin?: number, peer_margin?: number): Promise<TidyLayout>;
     private constructor();
     changeLayoutType(type: LayoutType): void;
     layout(updated?: boolean): void;

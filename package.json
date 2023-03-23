@@ -1,7 +1,7 @@
 {
-  "name": "@zxch3n/tidy",
+  "name": "@hackworthltd/tidy",
   "sideEffects": false,
-  "version": "0.0.2",
+  "version": "0.0.2-dev-20221128-01",
   "description": "",
   "type": "module",
   "files": [
@@ -46,12 +46,15 @@
   "author": "Zixuan Chen",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zxch3n/tidy.git"
+    "url": "https://github.com/hackworthltd/tidy.git"
+  },
+  "publishConfig": {
+    "@hackworthltd:registry": "https://npm.pkg.github.com"
   },
   "bugs": {
-    "url": "https://github.com/zxch3n/tidy/issues"
+    "url": "https://github.com/hackworthltd/tidy/issues"
   },
-  "homepage": "https://github.com/zxch3n/tidy#readme",
+  "homepage": "https://github.com/hackworthltd/tidy#readme",
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
